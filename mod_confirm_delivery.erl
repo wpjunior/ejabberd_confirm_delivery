@@ -60,7 +60,7 @@ send_packet(From, To, Packet) ->
     case Type =:= "chat" andalso Body =/= [] andalso Sessions =/= [] of
         true ->                
 
-        {ok, Ref} = timer:apply_after(10000, mod_confirm_delivery, get_session, [LUser, LServer, From, To, Packet]),
+        {ok, Ref} = timer:apply_after(10000, ?MODULE, get_session, [LUser, LServer, From, To, Packet]),
 
         ?INFO_MSG("Saving To ~p Ref ~p~n",[MessageId, Ref]),
 
